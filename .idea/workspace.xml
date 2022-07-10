@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c94ffd57-76cd-48ec-8ff3-0cbe12023b4f" name="변경" comment="git branch brchA">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Items.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Vending_Machine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/package-info.java" afterDir="false" />
+    <list default="true" id="c94ffd57-76cd-48ec-8ff3-0cbe12023b4f" name="변경" comment="git commit -m">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/main.java" afterDir="false" />
     </list>
@@ -82,8 +78,16 @@
       <option name="presentableId" value="Default" />
       <updated>1657123124234</updated>
       <workItem from="1657123125571" duration="2176000" />
-      <workItem from="1657265353830" duration="13607000" />
+      <workItem from="1657265353830" duration="16038000" />
     </task>
+    <task id="LOCAL-00001" summary="git commit -m">
+      <created>1657458121524</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1657458121524</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,5 +103,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit" />
+    <MESSAGE value="git commit -m" />
+    <option name="LAST_COMMIT_MESSAGE" value="git commit -m" />
   </component>
 </project>

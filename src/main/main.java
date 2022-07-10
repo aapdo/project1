@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class main {
-    public static void main( String[] args ) {ㅎ
+    public static void main( String[] args ) {
         PrintStream out = System.out;
         ArrayList<Items> init_items = new ArrayList<>();
         init_items.add(new Items(1, "cola", 5, 1500));
@@ -21,6 +21,8 @@ public class main {
         int input_price;
         int input_idx;
         int select_number;
+        int input_money = 0;
+        String input_yn;
         Items target_item;
 
         Scanner in = new Scanner(System.in);
@@ -72,13 +74,11 @@ public class main {
                             target_item.name = input_name;// value가 아니라 reference 였다..??
                             break;
                         case 2:
-                            in.nextLine();
                             out.println("변경할 재고를 입력해주세요.");
                             input_qty = in.nextInt();
                             target_item.qty = input_qty;
                             break;
                         case 3:
-                            in.nextLine();
                             out.println("변경할 가격을 입력해주세요.");
                             input_price = in.nextInt();
                             target_item.price = input_price;
@@ -89,15 +89,60 @@ public class main {
                     vending_machine.print_items();
                     break;
                 case 3:
+                    out.println("재고를 추가할 메뉴를 선택하세요.");
+                    vending_machine.print_items();
+                    input_idx = in.nextInt() - 1;
+                    target_item = vending_machine.get_item(input_idx);
+                    out.println("추가할 수량을 입력해주세요.");
+                    input_qty = in.nextInt();
+                    target_item.qty += input_qty;
 
+                    vending_machine.print_items();
+                    break;
+                case 4:
+                    out.println("가격을 변경할 메뉴를 선택하세요.");
+                    vending_machine.print_items();
+                    input_idx = in.nextInt() - 1;
+                    target_item = vending_machine.get_item(input_idx);
+                    out.println("변경할 가격을 입력해주세요.");
+                    input_price = in.nextInt();
+                    target_item.price = input_price;
+                    vending_machine.print_items();
+                    break;
+                case 5:
+                    if(input_money == 0){
+                        out.println("돈을 넣어주세요.");
+                        input_money = in.nextInt();
+                    }
+                    while(true){
+                        out.println("구매할 메뉴를 선택하세요.(0번 입력시 구매 종료, 잔돈: "+input_money+"원)");
+                        vending_machine.print_items();
+                        input_idx = in.nextInt() - 1;
+                        if(input_idx == -1){
+                            out.println("잔돈이 "+input_money+"원 남았습니다.");
+                            break;
+                        }
+                        target_item = vending_machine.get_item(input_idx);
+                        if(input_money < target_item.price){
+                            out.println("돈이 "+(target_item.price-input_money)+"원 부족합니다. 추가로 돈을 넣으시겠습니까?(y or n)");
+                            in.nextLine();
+                            input_yn = in.next();
+                            if(input_yn.equals("y")){
+                                out.println("얼마를 더 넣으시겠습니까?");
+                                input_money += in.nextInt();
+                            }else{
+                                break;
+                            }
+                        }else{
+                            out.println(target_item.name+" 구매 성공!");
+                            input_money -= target_item.price;
+                            target_item.qty -= 1;
+                        }
+                    }
                     break;
                 default:
                     break;
             }
-
-            //vending_machine.add_item(3, "doctor pepper", 3, 1700);
-
-
         }
     }
 }
